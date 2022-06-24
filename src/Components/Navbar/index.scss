@@ -1,0 +1,48 @@
+@use '../../index.scss';
+
+.navbar{
+    font-family: index.$main-font;
+    background-color: index.$navbar-color;
+    text-transform: capitalize;
+    top: 0;
+    height: 100vh;
+    max-width: 300px;
+    position: sticky;
+    
+
+    .logo{
+        display: flex;
+        padding: 15px 10px;
+        
+        img{
+           width: 30px;
+        }
+        .logo-text{
+            color: index.$logo-color;
+            padding-left: 10px;
+            font-family: index.$logo-font;
+        }
+    }
+
+    .nav-list-items{
+        margin-top: 20px;
+        .nav-link{
+            display: block;
+            text-decoration:none;
+            color: index.$light-grey;
+            display:flex;
+            align-items: center;
+            padding: 15px 10px;
+            transition: ease all 0.2s;
+
+            &:hover{
+                background-color: index.$logo-color;
+                color: #ffffff;
+            }
+
+            span{
+                padding-left: 5px;
+            }
+        }
+    }
+}

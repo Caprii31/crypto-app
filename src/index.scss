@@ -1,0 +1,44 @@
+// Main variables //
+
+$navbar-color:#001233;
+$logo-color:#0582CA;
+$light-grey: #DEE2E6;
+$dark-grey-1: #6c757d;
+$dark-grey-2: #343A40;
+$main-font:Lato;
+$logo-font:Orbitron;
+
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  font-family:Lato;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url('./utils/Lato-Regular.ttf');
+}
+
+@font-face {
+  font-family: Orbitron;
+  src: url('./utils/Orbitron-ExtraBold.ttf');
+}
+
+
+.App{
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+  'nb nb pl pl pl pl pl pl pl pl pl pl';
+}
+
+.navbar{
+  grid-area: nb;
+}
+
+.page-layout{
+  grid-area: pl;
+}
+
