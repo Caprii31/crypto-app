@@ -11,11 +11,35 @@ h1{
     top: 0;
 }
 
+.home-button{
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 120px;
+    margin-right:20px;
+    text-align: center;
+    padding: 10px;
+    outline: none;
+    font-size:0.8rem;
+    letter-spacing:2px;
+    text-decoration: none;
+    background-color: index.$navbar-color;
+    color: index.$light-grey;
+    border-radius:20px;
+    transition: ease all 0.2s;
+
+    &:hover{
+        background-color: index.$logo-color;
+        color: #ffffff;
+    }
+}
+
+
 .home{
 
     background-color: index.$light-grey;
     text-transform: uppercase;
     padding: 20px 23px;
+    height: fit-content;
     
     .home-stats{
         
@@ -56,42 +80,40 @@ h1{
     .home-cryptos{
 
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
 
         .cryptos-title{
-
             display:flex;
             align-items:center;
             font-size: 1.2rem;
             font-weight: bold;
             text-transform:uppercase;
-        }
+            justify-content:space-between;
 
-        .home-button{
-            text-transform: uppercase;
-            cursor: pointer;
-            width: 120px;
-            margin-right:20px;
-            text-align: center;
-            padding: 10px;
-            outline: none;
-            font-size:0.8rem;
-            letter-spacing:2px;
-            text-decoration: none;
-            background-color: index.$navbar-color;
-            color: index.$light-grey;
-            border-radius:20px;
-            transition: ease all 0.2s;
-    
-            &:hover{
-                background-color: index.$logo-color;
-                color: #ffffff;
+            .cryptos-title-text{
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
+        
+    }
 
+    .home-news{
+
+        display:flex;
+        flex-direction:column;
         
-        
-        
+        .news-title{
+
+            display: flex;
+            justify-content:space-between;
+
+            .home-title-text{
+                display: flex;
+                align-items: center;
+            }
+        }
     }
   
 }

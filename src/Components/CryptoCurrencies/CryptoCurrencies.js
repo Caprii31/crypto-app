@@ -12,7 +12,10 @@ function CryptoCurrencies({ simplified }) {
     const [cryptos , setCrypto] = useState([])
     const cryptoCount = simplified ? 12 : 100
     const { data: cryptoList, isFetching } = useGetCryptoQuery(cryptoCount)
+    console.log()
     const [searched, setSearched] = useState('') 
+    console.log(searched)
+
     const [loading , setLoading] = useState(true)
 
     useEffect(() => {
@@ -39,7 +42,7 @@ function CryptoCurrencies({ simplified }) {
       {!simplified &&  (
           <form className="search-box" onChange = {((e) => isSearched(e))}>
               <button className="search-btn">search cryptos</button>
-                <input type="text"  className='search-cryptos'/>
+              <input type="text"  className='search-cryptos'/>
           </form>
       )}
       <div className="cryptos-container">

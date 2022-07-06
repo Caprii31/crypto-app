@@ -4,10 +4,14 @@ import DonutSmallIcon from '@mui/icons-material/DonutSmall';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import CryptoCurrencies from '../CryptoCurrencies/CryptoCurrencies'
 import { useGetCryptoQuery } from '../../services/cryptoApi'
+import { useGetCryptoNewsQuery } from '../../services/cryptoNewsApi'
 import millify from 'millify'
 import { Link } from 'react-router-dom'
 import LinearProgress from '@mui/material/LinearProgress';
 import { useState, useEffect } from 'react'
+import FeedIcon from '@mui/icons-material/Feed';
+import CryptoNews from '../../CryptoNews/CryptoNews';
+import News from '../News/News'
 
 
 
@@ -15,6 +19,7 @@ import { useState, useEffect } from 'react'
 function Home() {
 
   const { data, isFetching }  = useGetCryptoQuery()
+  
   const [loading , setLoading] = useState(true)
   const stats = data?.data?.stats
 
@@ -23,10 +28,10 @@ function Home() {
       setLoading(false)
     },500)
   }
-
+  
   useEffect(()=>{
-    pageLoading()
-  },[])
+    if(!isFetching)pageLoading()
+  },[data])
 
   
 
@@ -66,14 +71,25 @@ function Home() {
           </div>
           <div className="home-cryptos">
             <div className="cryptos-title">
-              <DonutSmallIcon style={{ color : '#0582CA'}} sx={{fontSize: '30px'}}/>
-              <h1>Top 10 cryptourrencies</h1>
+              <div className="cryptos-title-text">
+                <DonutSmallIcon style={{ color : '#0582CA'}} sx={{fontSize: '30px'}}/>
+                <h1>Top 10 cryptourrencies</h1>
+              </div>
+              <Link to='/cryptocurrencies' className='home-button'>see all</Link>
             </div>
-            <Link to='/cryptocurrencies' className='home-button'>see all</Link>
             
-
+            <CryptoCurrencies simplified />
           </div>
-          <CryptoCurrencies simplified />
+          <div className="home-news">
+            <div className="news-title">
+              <div className="home-title-text">
+                <FeedIcon style={{ color : '#0582CA'}} sx={{fontSize: '30px'}} />
+                <h1> latest crypto news </h1>
+              </div>
+              <Link to='/news' className='home-button'>see all</Link>
+            </div>
+            <CryptoNews simplified />
+          </div>
         </div>
     )
   

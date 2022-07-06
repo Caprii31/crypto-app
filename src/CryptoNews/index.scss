@@ -1,0 +1,14 @@
+@use '../index.scss';
+
+.crypto-news{
+    background-color:index.$light-grey;
+    padding-bottom: 50px;
+
+    .crypto-news-container{
+        margin: 30px 0;
+        display: flex;
+        justify-content:center;
+        flex-wrap: wrap;
+        gap: 25px; 
+    }
+}

@@ -4,6 +4,7 @@ import millify from 'millify'
 
 function Crypto({ cryptoCur }) {
 
+
   
    
   return (

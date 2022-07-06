@@ -1,0 +1,44 @@
+@use '../../index.scss';
+
+.crypto-news-box{
+    width:390px;
+    height:220px;
+    background-color:#ffffff;
+    padding: 20px;
+    
+
+    .upper-box{
+        display: flex;
+        justify-content:space-between;
+        font-size: 0.8rem;
+        line-height:1.5;  
+
+        
+        h3{
+            width: 220px;
+        }
+    }
+
+    .lower-box{
+
+        margin-top:10px;
+        font-size: 0.7rem;
+
+        
+
+        .news-details{
+            margin-top:10px;
+            display: flex;
+            justify-content:space-between;
+            padding: 0 10px;
+            color: index.$dark-grey-1;
+
+
+            a{
+                text-decoration:none;
+                color: index.$dark-grey-1;
+
+            }
+        }
+    }
+}
