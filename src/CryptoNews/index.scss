@@ -1,13 +1,36 @@
 @use '../index.scss';
 
 .crypto-news{
-    background-color:index.$light-grey;
     padding-bottom: 50px;
+    padding: 0 23px;
+
+
+    .select-crypto{
+        margin-top:30px;
+        width: 250px;
+        height:30px;
+        text-transform: capitalize;
+        outline: none;
+        border: none;
+        color: index.$dark-grey-1;
+        
+
+        &:focus{
+            border: 2px solid index.$logo-color;
+        }
+
+        .default-select{
+            font-weight: bold;
+            color: index.$navbar-color;
+        }
+
+        
+    }
 
     .crypto-news-container{
         margin: 30px 0;
         display: flex;
-        justify-content:center;
+        justify-content:flex-start;
         flex-wrap: wrap;
         gap: 25px; 
     }

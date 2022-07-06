@@ -10,16 +10,22 @@ import './index.scss'
 function CryptoNews({ simplified }) {
 
   const { data: cryptoList } = useGetCryptoQuery()
-  const [ newsCategory, setNewsCategory] = useState('')
-
+  const [ cryptoCategory, setCryptoCategory] = useState('cryptocurrency')
   const count = simplified ? 12 : 100
-  const { data: cryptoNews } = useGetCryptoNewsQuery({newsCategory: 'cryptocurrency',count })
-  
-  console.log(cryptoNews)
+  const { data: cryptoNews } = useGetCryptoNewsQuery({newsCategory: cryptoCategory,count })
+
+  const handleSelect = (e)=>{
+    e.preventDefault()
+    setCryptoCategory(e.target.value)
+  }  
+
+
+  console.log(cryptoCategory)
   return (
     <div className="crypto-news">
       {!simplified && (
-        <select name="cryptcurrenciest" id="" className="select-crypto">
+        <select name="cryptcurrenciest" id="" className="select-crypto" onChange={(e)=> handleSelect(e)}>
+          <option value="cryptocurrency" className='default-select'> choose crypto news</option>
           {cryptoList?.data?.coins?.map(cur => (
             <option value={cur.name} key={cur.uuid}>{cur.name}</option>
           ))}
