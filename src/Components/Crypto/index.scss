@@ -1,13 +1,19 @@
 @use '../../index.scss';
 
 .crypto-box{
-    width:290px;
+    flex: 1 1 23.5%;
     height: 220px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
     text-transform: upperCase;
     color: index.$dark-grey-2;
+    text-decoration: none;
+    transition: ease all 0.3s;
+
+    &:hover{
+        transform: scale(1.1);
+    }
     
 
     

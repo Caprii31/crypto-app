@@ -24,6 +24,8 @@ function CryptoCurrencies({ simplified }) {
         const filteredCrypto = cryptoList?.data?.coins.filter(crypto => crypto.name.toLowerCase().includes(searched))
         setCrypto(filteredCrypto)
        if(!isFetching) setLoading(false)
+       window.scrollTo(0, 0);
+
 
     },[cryptoList,searched])
 

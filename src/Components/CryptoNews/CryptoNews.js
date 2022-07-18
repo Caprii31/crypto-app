@@ -1,28 +1,35 @@
 import React from 'react'
-import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi'
-import { useGetCryptoQuery } from '../services/cryptoApi'
-import { useState } from 'react'
-import News from '../Components/News/News'
+import { useGetCryptoNewsQuery } from '../../services/cryptoNewsApi'
+import { useGetCryptoQuery } from '../../services/cryptoApi'
+import { useState ,useEffect } from 'react'
+import News from '../News/News'
 import './index.scss'
+import LinearProgress from '@mui/material/LinearProgress';
+
  
 
 
 function CryptoNews({ simplified }) {
 
-  const { data: cryptoList } = useGetCryptoQuery()
+  const { data: cryptoList , isFetching } = useGetCryptoQuery()
   const [ cryptoCategory, setCryptoCategory] = useState('cryptocurrency')
   const count = simplified ? 12 : 100
   const { data: cryptoNews } = useGetCryptoNewsQuery({newsCategory: cryptoCategory,count })
+  const [loading , setLoading] = useState(true)
 
   const handleSelect = (e)=>{
     e.preventDefault()
     setCryptoCategory(e.target.value)
   }  
 
+  useEffect(()=>{
+    if(!isFetching) setLoading(false)
+    window.scrollTo(0,0)
+  },[cryptoList])
 
   console.log(cryptoCategory)
-  return (
-    <div className="crypto-news">
+  return loading ? (!simplified && <LinearProgress />) :
+    (<div className="crypto-news">
       {!simplified && (
         <select name="cryptcurrenciest" id="" className="select-crypto" onChange={(e)=> handleSelect(e)}>
           <option value="cryptocurrency" className='default-select'> choose crypto news</option>
@@ -35,8 +42,8 @@ function CryptoNews({ simplified }) {
             <News cryptoNews={news} key={index} />
           ))}
       </div>
-    </div>
-  )
+    </div>)
+  
 }
 
 export default CryptoNews

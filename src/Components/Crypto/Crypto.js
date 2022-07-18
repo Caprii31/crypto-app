@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.scss'
 import millify from 'millify'
+import { Link } from 'react-router-dom'
 
 function Crypto({ cryptoCur }) {
 
@@ -8,7 +9,7 @@ function Crypto({ cryptoCur }) {
   
    
   return (
-    <div className='crypto-box'>
+    <Link className='crypto-box' to={`/crypto/${cryptoCur.uuid}`}>
         <div className="upper-box">
            <span>{`${cryptoCur.rank}. ${cryptoCur.name}`}</span>
             <img src={cryptoCur.iconUrl} alt="" />
@@ -21,7 +22,7 @@ function Crypto({ cryptoCur }) {
                 <p><span>daily change :</span> {cryptoCur.change}</p>
             </div>
         </div>
-    </div>
+    </Link>
   )
 }
 

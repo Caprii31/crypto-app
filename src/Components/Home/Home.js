@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 import LinearProgress from '@mui/material/LinearProgress';
 import { useState, useEffect } from 'react'
 import FeedIcon from '@mui/icons-material/Feed';
-import CryptoNews from '../../CryptoNews/CryptoNews';
+import CryptoNews from '../CryptoNews/CryptoNews';
 import News from '../News/News'
 
 
@@ -30,7 +30,8 @@ function Home() {
   }
   
   useEffect(()=>{
-    if(!isFetching)pageLoading()
+    if(!isFetching) pageLoading()
+    window.scrollTo(0, 0);
   },[data])
 
   
@@ -38,7 +39,6 @@ function Home() {
   console.log(stats)
   console.log(data)
   return loading ? (<LinearProgress />) : 
-
     (
         <div className="home">
           <div className="home-stats">

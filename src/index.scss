@@ -28,10 +28,19 @@ $logo-font:Orbitron;
 
 .App{
   display: grid;
-  grid-template-columns: repeat(12,1fr);
-  grid-template-rows: auto 1fr;
+  grid-template-columns: repeat(12,auto);
+  grid-template-rows: auto auto 100px;
   grid-template-areas: 
-  'nb nb pl pl pl pl pl pl pl pl pl pl';
+  'nb nb pl pl pl pl pl pl pl pl pl pl'
+  'nb nb pl pl pl pl pl pl pl pl pl pl'
+  'nb nb fr fr fr fr fr fr fr fr fr fr';
+
+  // @media only screen and (min-width:960px) and (max-width:1440px){
+  //   grid-template-areas: 
+  //   'nb nb nb pl pl pl pl pl pl pl pl pl'
+  //   'nb nb nb pl pl pl pl pl pl pl pl pl'
+  //   'nb nb nb fr fr fr fr fr fr fr fr fr';
+  // }
   
 }
 
@@ -42,5 +51,39 @@ $logo-font:Orbitron;
 .page-layout{
   background-color: $light-grey;
   grid-area: pl;
+  padding-bottom: 10px;
 }
+
+footer{
+  grid-area :fr;
+  background-color: $navbar-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: $light-grey;
+  line-height:3;
+  text-transform: capitalize;
+
+  
+
+  .footer-list{
+
+    .footer-list-item{
+      display: inline-block;
+      text-decoration: none;
+      color: $light-grey;
+      font-size: 1.2rem;
+      padding: 0 25px;
+
+      &:hover{
+        color: $logo-color;
+      }
+    }
+  }
+  
+}
+
+
+
 

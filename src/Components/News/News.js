@@ -8,7 +8,7 @@ function News({ cryptoNews }) {
   
 
   return (
-    <div className="crypto-news-box">
+    <a className="crypto-news-box" href={cryptoNews?.url} target="_blank">
         <div className="upper-box">
           <h3>{cryptoNews?.name}</h3>
           <img src={cryptoNews?.image?.thumbnail?.contentUrl} alt="" />
@@ -18,11 +18,11 @@ function News({ cryptoNews }) {
             {cryptoNews?.description.substring(0,100)}
           </p>
           <div className="news-details">
-            <a href={cryptoNews?.url} target="_blank">{cryptoNews?.provider[0]?.name}</a>
+            <p>{cryptoNews?.provider[0]?.name}</p>
             <p>{new Date(new Date() - new Date(cryptoNews?.datePublished)).getHours()} hours ago</p>
           </div>
         </div>
-    </div>
+    </a>
   )
 }
 
