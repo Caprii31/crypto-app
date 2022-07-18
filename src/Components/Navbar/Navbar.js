@@ -14,6 +14,11 @@ function Navbar() {
             <img src={image} alt="" />
             <h2 className="logo-text">cryptoverse</h2>
         </div>
+        <div className="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div className="nav-list-items">
             <NavLink to="/" className="nav-link">
                 <CottageOutlinedIcon />

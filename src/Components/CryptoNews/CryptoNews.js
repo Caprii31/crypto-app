@@ -15,21 +15,16 @@ function CryptoNews({ simplified }) {
   const [ cryptoCategory, setCryptoCategory] = useState('cryptocurrency')
   const count = simplified ? 12 : 100
   const { data: cryptoNews } = useGetCryptoNewsQuery({newsCategory: cryptoCategory,count })
-  const [loading , setLoading] = useState(true)
-
+  
   const handleSelect = (e)=>{
     e.preventDefault()
     setCryptoCategory(e.target.value)
   }  
 
-  useEffect(()=>{
-    if(!isFetching) setLoading(false)
-    window.scrollTo(0,0)
-  },[cryptoList])
-
+ 
   console.log(cryptoCategory)
-  return loading ? (!simplified && <LinearProgress />) :
-    (<div className="crypto-news">
+  return (
+    <div className="crypto-news">
       {!simplified && (
         <select name="cryptcurrenciest" id="" className="select-crypto" onChange={(e)=> handleSelect(e)}>
           <option value="cryptocurrency" className='default-select'> choose crypto news</option>

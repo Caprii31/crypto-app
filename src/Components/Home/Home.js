@@ -11,7 +11,6 @@ import LinearProgress from '@mui/material/LinearProgress';
 import { useState, useEffect } from 'react'
 import FeedIcon from '@mui/icons-material/Feed';
 import CryptoNews from '../CryptoNews/CryptoNews';
-import News from '../News/News'
 
 
 
@@ -23,23 +22,13 @@ function Home() {
   const [loading , setLoading] = useState(true)
   const stats = data?.data?.stats
 
-  const pageLoading = () => {
-    setTimeout(() => {
-      setLoading(false)
-    },500)
-  }
   
-  useEffect(()=>{
-    if(!isFetching) pageLoading()
-    window.scrollTo(0, 0);
-  },[data])
 
   
 
   console.log(stats)
   console.log(data)
-  return loading ? (<LinearProgress />) : 
-    (
+  return(
         <div className="home">
           <div className="home-stats">
             <div className="stats-title">

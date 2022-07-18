@@ -3,8 +3,6 @@ import './index.scss'
 import Crypto from '../Crypto/Crypto'
 import { useEffect, useState } from 'react'
 import { useGetCryptoQuery } from '../../services/cryptoApi'
-import { Link } from 'react-router-dom'
-import LinearProgress from '@mui/material/LinearProgress';
 
 
 function CryptoCurrencies({ simplified }) {
@@ -16,14 +14,13 @@ function CryptoCurrencies({ simplified }) {
     const [searched, setSearched] = useState('') 
     console.log(searched)
 
-    const [loading , setLoading] = useState(true)
 
     useEffect(() => {
 
         setCrypto(cryptoList?.data?.coins)
         const filteredCrypto = cryptoList?.data?.coins.filter(crypto => crypto.name.toLowerCase().includes(searched))
         setCrypto(filteredCrypto)
-       if(!isFetching) setLoading(false)
+      
        window.scrollTo(0, 0);
 
 
@@ -38,8 +35,7 @@ function CryptoCurrencies({ simplified }) {
     }
 
 
-  return loading ? (!simplified && <LinearProgress />) : 
-  (
+  return (
     <div className='cryptocurrencies'>
       {!simplified &&  (
           <form className="search-box" onChange = {((e) => isSearched(e))}>

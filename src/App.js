@@ -6,12 +6,28 @@ import CryptDetails from './Components/CryptoDetails/CryptoDetails'
 import CryptoNews from './Components/CryptoNews/CryptoNews'
 import CryptoCurrencies from './Components/CryptoCurrencies/CryptoCurrencies'
 import { Link, Route, Routes} from 'react-router-dom'
+import LinearProgress from '@mui/material/LinearProgress';
+
+
+
 
 function App() {  
 
+  const { data, isFetching }  = useGetCryptoQuery()
+  const [loading , setLoading] = useState(true)
+
+  const pageLoading = () => {
+      setLoading(false)
+  }
   
-  return (
-    <div className="App">
+  useEffect(()=>{
+    if(!isFetching) pageLoading()
+    window.scrollTo(0, 0);
+  },[data])
+
+  
+  return loading ? (<LinearProgress />) :
+    (<div className="App">
       <Navbar />
       <div className="page-layout">
         <Routes>
